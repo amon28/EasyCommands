@@ -1,8 +1,8 @@
 # EasyCommands
 For easy getting the return values of commands
 
-# getTags()
+# getTags(command)
 For getting list of tags on an entity
 
-# getVictims()
+# getVictims(command)
 For gettings all of the victims of the testfor
