@@ -65,6 +65,7 @@ export class EasyCommands{
 		return arr;
 	}
 	
+	//returns array
 	static getClearedPlayers(command){
 	let support = ["clear"];
 	let cs = command.split(" ");	
@@ -83,6 +84,7 @@ export class EasyCommands{
 		}
 	}
 	
+	//returns array
 	static getItemRemovedCount(command){
 	let support = ["clear"];
 	let cs = command.split(" ");	
