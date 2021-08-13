@@ -5,7 +5,7 @@ import * as Minecraft from 'Minecraft';
 export class EasyCommands{
 	
 	//accepts entity obj and entity type
-	//returns 
+	//returns tag array
 	static getTags(entity,entityType){
 		let EntityName = entity.nameTag;
 		try{
