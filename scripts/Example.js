@@ -1,3 +1,4 @@
+//This is an example of using EasyCommands
 import * as GameTest from "GameTest";
 import { BlockLocation } from "Minecraft";
 import * as Minecraft from 'Minecraft';
