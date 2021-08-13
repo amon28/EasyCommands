@@ -27,9 +27,6 @@ export class EasyCommands{
 		}catch(e){
 		Minecraft.Commands.run(`say ${e}`);	
 		}		
-	}
-	
-	static getVictim(){
-		
+	}		
 	}
 }
