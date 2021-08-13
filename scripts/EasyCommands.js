@@ -4,11 +4,11 @@ import * as Minecraft from 'Minecraft';
     
 export class EasyCommands{	
 	
-	//accepts command string
+	//accepts /tag command
+	//return array
 	static getTags(command){
-		let list;
 		try{
-			list = 	Minecraft.Commands.run(`${command}`).statusMessage;
+			let list = 	Minecraft.Commands.run(`${command}`).statusMessage;
 			list = list.replace(/ /gi,"");
 			let str = list.split(`:`);
 			let tagList = str[1].split(`,`);
@@ -16,6 +16,17 @@ export class EasyCommands{
 		}catch(e){	
 		Minecraft.Commands.run(`say ${e}`);
 		}
+	}
+	
+	//accepts /testfor command
+	//return array
+	static getVictims(command){
+		try{
+		let c = Minecraft.Commands.run(`${command}`).victim;
+			return c;
+		}catch(e){
+		Minecraft.Commands.run(`say ${e}`);	
+		}		
 	}
 	
 	static getVictim(){
