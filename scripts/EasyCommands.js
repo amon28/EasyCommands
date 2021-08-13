@@ -2,24 +2,23 @@ import * as GameTest from "GameTest";
 import { BlockLocation } from "Minecraft";
 import * as Minecraft from 'Minecraft';
     
-export class EasyCommands{
+export class EasyCommands{	
 	
-	//accepts entity obj or with entity type
-	//returns tag array
-	static getTags(entity,entityType){
-		let EntityName = entity.nameTag;
+	//accepts command string
+	static getTags(command){
 		let list;
 		try{
-			if(!entityType == ""){
-				list = 	Minecraft.Commands.run(`tag @e[name="${EntityName}",type=${entityType}] list`).statusMessage;	
-			}else{
-				list = 	Minecraft.Commands.run(`tag @e[name="${EntityName}"] list`).statusMessage;		
-			}
+			list = 	Minecraft.Commands.run(`${command}`).statusMessage;
+			list = list.replace(/ /gi,"");
 			let str = list.split(`:`);
 			let tagList = str[1].split(`,`);
 				return tagList;
 		}catch(e){	
 		Minecraft.Commands.run(`say ${e}`);
 		}
+	}
+	
+	static getVictim(){
+		
 	}
 }
