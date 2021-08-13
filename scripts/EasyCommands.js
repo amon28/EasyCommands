@@ -4,12 +4,17 @@ import * as Minecraft from 'Minecraft';
     
 export class EasyCommands{
 	
-	//accepts entity obj and entity type
+	//accepts entity obj or with entity type
 	//returns tag array
 	static getTags(entity,entityType){
 		let EntityName = entity.nameTag;
+		let list;
 		try{
-		let list = 	Minecraft.Commands.run(`tag @e[name="${EntityName}",type=${entityType}] list`).statusMessage;		
+			if(!entityType == ""){
+				list = 	Minecraft.Commands.run(`tag @e[name="${EntityName}",type=${entityType}] list`).statusMessage;	
+			}else{
+				list = 	Minecraft.Commands.run(`tag @e[name="${EntityName}"] list`).statusMessage;		
+			}
 			let str = list.split(`:`);
 			let tagList = str[1].split(`,`);
 				return tagList;
