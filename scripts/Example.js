@@ -25,6 +25,7 @@ function beforeChat(entityData)
 			}			
 				str = "Tags:" + str;
 			Minecraft.Commands.run(`tellraw ${entityData.sender.name} {"rawtext":[{"text":"${str}"}]}`);
+			//output: all of the tags of the player
 		break;
 		
 		case "!victim":
@@ -34,6 +35,7 @@ function beforeChat(entityData)
 			}
 			str = "Victims:" + str;
 			Minecraft.Commands.run(`tellraw ${entityData.sender.name} {"rawtext":[{"text":"${str}"}]}`);
+			//output: all of the names of the player gotten by testfor
 		break;
 		
 		//this is for testing
