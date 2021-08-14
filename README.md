@@ -1,17 +1,17 @@
 ## EasyCommands
 For easy getting the return values of commands
 
-# getTags(command)
+## getTags(command)
 For getting list of tags on an entity
 
-# getPlayers(command)
+## getPlayers(command)
 For getting player names affected by the command
 
-# playerCount()
+## playerCount()
 For getting how many players
 
-# playerCountMax()
+## playerCountMax()
 For getting the maximum players the world can hold
 
-# getItemRemovedCount(command)
+## getItemRemovedCount(command)
 For getting how many items were cleared
