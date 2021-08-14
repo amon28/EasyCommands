@@ -29,7 +29,7 @@ function beforeChat(entityData)
 		break;
 		
 		case "!victim":
-		let victims = EasyCommands.getVictims(`testfor @e[type=player]`);
+		let victims = EasyCommands.getPlayers(`testfor @e[type=player]`);
 			for(var c in victims){
 			str = str + victims[c] + ",";
 			}
@@ -41,40 +41,36 @@ function beforeChat(entityData)
 		case "!playercount":
 		let count = "Count: " + EasyCommands.playerCount();
 			Minecraft.Commands.run(`tellraw ${entityData.sender.name} {"rawtext":[{"text":"${count}"}]}`);
-			//output: current player count
 		break;
 		
 		case "!maxplayers":
 		let max = "Max Count: " + EasyCommands.playerCountMax();
 			Minecraft.Commands.run(`tellraw ${entityData.sender.name} {"rawtext":[{"text":"${max}"}]}`);
-			//output: max player count the world can hold
 		break;
 		
 		case "!getplayers":
-		let players = EasyCommands.getAllPlayers();
+		let players = EasyCommands.getPlayers(`list`);
 			for(var c in players){
 				str = str + players[c] + ",";
 			}
 			str = "players: " + str;
 			Minecraft.Commands.run(`tellraw ${entityData.sender.name} {"rawtext":[{"text":"${str}"}]}`);
-			//output: get all player names in the world
 		break;
 		
 		case "!clearedplayers":
-		let cplayers = EasyCommands.getClearedPlayers(`clear @a`);
+		let cplayers = EasyCommands.getPlayers(`clear @a`);
 			for(var c in cplayers){
 				str = str + cplayers[c] + ",";
 			}
 			str = "players: " + str;
 			Minecraft.Commands.run(`tellraw ${entityData.sender.name} {"rawtext":[{"text":"${str}"}]}`);
-			//output: get player names whos items got cleared
 		break;
 		
 		//this is for testing
 		case "!test":
-		let test = Minecraft.Commands.run(`clear @a apple 0 1`);
-			for(var c in test){
-			Minecraft.Commands.run(`say ${c} - ${test[c]}`);
+		let test = Minecraft.Commands.run(`execute @a[name=${entityData.sender.name}] ~ ~ ~ testforblock ~ ~-1 ~ grass 0`);
+			if(test){
+			Minecraft.Commands.run(`say success!`);
 			}
 		break;
 	}
